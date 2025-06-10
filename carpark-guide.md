@@ -74,7 +74,7 @@ Notes on using this guide:
 Include a screenshot of your GitHub repository **after** you have pushed your initial commit.
 
 ```markdown
-![Initial commit](screenshots/image-of-github-after-push.png)
+!![image-of-github-after-push.png](screenshots%2Fimage-of-github-after-push.png)
 ```
 
 ### 2.2. Create a branch for your work
@@ -123,7 +123,7 @@ Ensure you have completed the previous table and include at least two methods an
 Include a screenshot of your GitHub repository `src/` directory **after** you have pushed your changes.
 
 ```markdown
-![Added stubs for classes](screenshots/stubs-for-classes.png)
+!![stubs-for-classes.png](screenshots%2Fstubs-for-classes.png)
 ```
 
 ### 2.5. Add constructors and attributes to the classes
@@ -222,7 +222,7 @@ You realize that you need a way to configure the car park system. You decide to 
 --------
 **Additional evidencing:**
 Ensure that you have completed the previous steps and created the appropriate tags. Confirm that the tags have been created by running `git tag` in the terminal and provide a screenshot of the output.
-
+![git-s1-s2-tag.png](screenshots%2Fgit-s1-s2-tag.png)
 ```bash
 [student@workstation ipriot-car-park-prj]$ git tag
 s1
