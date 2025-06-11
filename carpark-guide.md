@@ -92,7 +92,7 @@ After reading the task requirements, you should be able to identify the classes,
 
 | Class Name | Attributes                                            | Methods                                                            |
 | ---------- |-------------------------------------------------------|--------------------------------------------------------------------|
-| `CarPark`    | capacity, available_bays, temeprature, license_plates | add_vehichle, remove_vehichle,display_update, save_file, load_file |
+| `CarPark`    | capacity, available_bays, temeprature, license_plates | add_vehichle, remove_vehichle,display_update, |
 | `Sensor`     | id, get_license_plate, active                         | scan_plate, entry,exit                                             |
 | `Display`    | id, content, is_on                                    | show, update(content), power                                       |
 
@@ -391,11 +391,11 @@ For example, you may want to see the number of available bays, the current tempe
 Now consider, between the `CarPark`, `Sensor`, and `Display` classes, which class is responsible for each piece of information? There's no right or wrong answer here. But you should be able to justify your answer.
 
 >Q. Which class is responsible for the number of available bays (and why)?
->
+>The sensor class. The sensors are responsible for trcking the number of cars which enter and exit the car park.
 >Q. Which class is responsible for the current temperature (and why)?
->
+>The CarPark class. The ambient temperature as an attribute of the car park itself.
 >Q. Which class is responsible for the time (and why)?
->
+>The Display class. The time would be only be shown on the displays, and is not relevant to other classes. 
 --------
 
 ##### 2.7.3.1. Detour: implement available bays
