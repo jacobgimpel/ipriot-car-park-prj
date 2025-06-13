@@ -73,9 +73,9 @@ Notes on using this guide:
 **Additional evidencing:**
 Include a screenshot of your GitHub repository **after** you have pushed your initial commit.
 
-```markdown
-!![image-of-github-after-push.png](screenshots%2Fimage-of-github-after-push.png)
-```
+
+![GitHub after push](images/image-of-github-after-push.png) 
+
 
 ### 2.2. Create a branch for your work
 
@@ -122,9 +122,9 @@ Ensure you have completed the previous table and include at least two methods an
 **Additional evidencing:**
 Include a screenshot of your GitHub repository `src/` directory **after** you have pushed your changes.
 
-```markdown
-!![stubs-for-classes.png](screenshots%2Fstubs-for-classes.png)
-```
+
+![stubs-for-classes.png](images/stubs-for-classes.png)
+
 
 ### 2.5. Add constructors and attributes to the classes
 
@@ -222,7 +222,10 @@ You realize that you need a way to configure the car park system. You decide to 
 --------
 **Additional evidencing:**
 Ensure that you have completed the previous steps and created the appropriate tags. Confirm that the tags have been created by running `git tag` in the terminal and provide a screenshot of the output.
-![git-s1-s2-tag.png](screenshots%2Fgit-s1-s2-tag.png)
+
+![git-s1-s2-tag.png](images/git-s1-s2-tag.png)
+
+
 ```bash
 [student@workstation ipriot-car-park-prj]$ git tag
 s1
@@ -468,9 +471,8 @@ This time, we will push the tag to the remote repository:
 
 Add a screenshot of the GitHub repository after pushing the tag, showing the CarPark class with the new methods:
 
-```markdown
-![Added methods to the car park class]![methods-to-car-park.png](screenshots%2Fmethods-to-car-park.png)
-```
+
+![methods-to-car-park.png](images/methods-to-car-park.png)
 
 Answer the following questions:
 > **Review Questions**
@@ -728,16 +730,39 @@ if __name__ == "__main__":
 
 1. Add a screenshot of the output of the unit tests. If any failed, add a screenshot of the error message and a screenshot after you have fixed the errors:
 
-   ```markdown
-   ![Unit tests](screenshots/unit-tests.png)
-   ```
-
 2. Commit your changes to the local repository. Tag the commit with `s6` so your lecturer can find it:
 3. Push the tag to the remote repository:
 
    ```bash
    git push --tags
    ```
+
+
+Error 1:
+
+![unit-test-error-sensor.png](images/unit-test-error-sensor.png)
+
+Fix 1:
+
+![unit-test-sensor-fix.png](images/unit-test-sensor-fix.png)
+
+Error 2:
+
+![unit-test-error-display.png](images/unit-test-error-display.png)
+
+Fix 2:
+
+![unit-test-display-fix](images/unit-test-display-fix.png)
+
+Unit tests passed ✓:
+
+![unit-test-pass.png](images/unit-test-pass.png)
+
+Both of the errors encountered were caused by the Display and Sensor class constructors, where I incorrectly
+had car_park, a non-default argument, following a default argument. Once this was changed, the unit tests were successful.
+
+
+
 
 ### 2.10. Display unit tests
 
