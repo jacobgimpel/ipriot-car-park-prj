@@ -37,5 +37,6 @@ class CarPark:
         return max(0, bays_left)
 
     def update_displays(self):
-        data = {"available_bays": self.available_bays, "temperature": 25}
-        for display in self.displays: display.update(data)
+        data = {"available_bays": self.available_bays, "temperature": 250}
+        for display in self.displays:
+            display.update(data)

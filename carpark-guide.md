@@ -811,16 +811,28 @@ Next, we'll create tests for the `Display` class. These tests will test the `__i
 
 1. Add a screenshot of the output of the unit tests. If any failed, add a screenshot of the error message and a screenshot after you have fixed the errors:
 
-   ```markdown
-   ![Unit tests](screenshots/unit-tests-display.png)
-   ```
-
 2. Commit your changes to the local repository. Tag the commit with `s7` so your lecturer can find it.
 3. Push the tag to the remote repository.
 
    ```bash
    git push --tags
    ```
+   
+I received this error when testing the update function:
+![display-unit-test-error.png](images/display-unit-test-error.png)
+
+This shows that the update(display) method is incorrectly implemented.
+
+Corrected:
+
+![display-unit-test-pass.png](images/display-unit-test-pass.png)
+
+Previously, my update method was not actually updating or adding any values to data, only printing it. 
+With the correction, when a message (key) is entered, it's value is assigned to self.message.
+
+
+
+
 
 ### 2.11. Sensor unit tests
 
