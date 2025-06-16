@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from random import random
+import random
 
 
 class Sensor(ABC):
@@ -25,7 +25,7 @@ class Sensor(ABC):
 
 class EntrySensor(Sensor):
     def update_car_park(self, plate):
-        self.car_park.remove_car(plate)
+        self.car_park.add_car(plate)
         print(f"Incoming vehicle detected. Plate {plate}")
 
 
@@ -34,5 +34,5 @@ class ExitSensor(Sensor):
         self.car_park.remove_car(plate)
         print(f"Outgoing vehicle detected. Plate {plate}")
 
-    def scan_plate(self):
+    def _scan_plate(self):
         return random.choice(self.car_park.plates)

@@ -840,11 +840,27 @@ Finally, we'll create tests for the `Sensor` class. These tests will test the `_
 
 > **Note**: Because the Sensor is abstract you cannot directly test it. You can only test its concrete subclasses.
 
+Tests for EntrySensor (With detect_vehicle method):
+
+![test-entry-sensor.png](images/test-entry-sensor.png)
+
+Tests for ExitSensor (Error encountered)
+
+![test-exit-sensor-fail.png](images/test-exit-sensor-fail.png)
+
+Fixed:
+
+![exit-sensor-detect-vehicle-test](images/exit-sensor-detect-vehicle-test-1.png)
+
+Previously, there were no values in the plates[] list for the exit sensor to remove, causing the error message.
+This test now removes the plate from the list, and confirms it using assertEqual.
+
+
 ### 2.12. Test the car park register method
 
 The car park register method should accept a `Sensor` (optional) or `Display` object. It should raise a `TypeError` if the object is neither a `Sensor` nor a `Display`. Before proceeding, think about where you would test this behaviour. Should you test it in the `CarPark` unit tests or the `Display`/`Sensor` unit tests? Why?
 
-> Answer here...
+>It should be tested in the CarPark unit tests. The CarPark class is responsible for managing the Sensors and Displays, the Sensor and Display tests should focus on their core functions, not on how they are registered. 
 
 Create a new unit test in the `test_car_park.py` file called `test_register_raises_type_error`. This test should create a `CarPark` object and a `str` object. It should then call the `register` method on the `CarPark` object with the `str` object as a parameter. The test should assert that a `TypeError` is raised. Here is a sample implementation:
 
@@ -855,6 +871,8 @@ with self.assertRaises(TypeError):
 ```
 
 **Additional evidencing:**
+
+![test-register.png](images/test_register.png)
 
 Commit your original test cases for the sensor class to the local repository. Tag the commit with `s8` so your lecturer can find it.
 
