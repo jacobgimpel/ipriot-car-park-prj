@@ -976,6 +976,9 @@ Notice how we have inadvertently made our test code hard to maintain (if we chan
 
 6. Run the unit tests in PyCharm. Confirm that they fail!
 
+
+![failed-log-car-unit-test](images/failed-log-car-unit-test.png)
+
 7. Commit your changes to the local repository. You do not need to tag them:
 
       ```bash
