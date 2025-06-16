@@ -1009,6 +1009,13 @@ Let's now implement the functionality to make the unit tests pass (if you have w
    ```
 
 3. If you have written the unit tests, run them in PyCharm. Confirm that your initialization tests now pass.
+
+
+![log-all-attributes.png](images/log-all-attributes.png)
+![log-file-created-test.png](images/log-file-created-test.png)
+
+
+
 4. Create a private method to log car activity. This method should accept the `plate` and `action` parameters. It should open the `log_file` in append mode and write the plate, action ('entered' or 'exited') and a timestamp to the file. Here is a sample implementation:
 
    ```python
@@ -1030,7 +1037,27 @@ Let's now implement the functionality to make the unit tests pass (if you have w
 
 6. If you have created the unit tests, run them in PyCharm. Confirm that they now pass.
 
+
+
 **Additional evidencing:**
+
+test_car_logged_when_entering:
+
+![car-logged-entering-test.png](images/car-logged-entering-test.png)
+
+
+test_car_logged_when_exiting:
+
+![car-log-exited-fail.png](images/car-log-exited-fail.png)
+
+
+corrected:
+
+![car-log-exited-pass](images/car-log-exited-pass.png)
+
+test_car_logged_when_exiting - assertIn arguments were in the wrong order. 
+
+
 
 1. Add and commit your changes to the branch
 2. Now we are going to merge the branch back into the main branch. First, switch to the main branch:
