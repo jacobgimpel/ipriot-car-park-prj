@@ -78,6 +78,20 @@ class TestCarPark(unittest.TestCase):
         self.assertIn("exited", last_line)  # check description
         self.assertIn("\n", last_line)  # check entry has a new line
 
+    def test_json_initialized(self):
+        self.car_park = CarPark("123 Example Street", 100, log_file="new_log.txt",
+                                config_file="config.json")
+
+        self.assertIsInstance(self.car_park, CarPark)
+        self.assertEqual(self.car_park.location, "123 Example Street")
+        self.assertEqual(self.car_park.capacity, 100)
+        self.assertEqual(self.car_park.plates, [])
+        self.assertEqual(self.car_park.displays, [])
+        self.assertEqual(self.car_park.available_bays, 100)
+        self.assertEqual(self.car_park.log_file, Path("new_log.txt"))
+        self.assertEqual(self.car_park.config_file, Path("config.json"))
+
+
 
 if __name__ == "__main__":
     unittest.main()
