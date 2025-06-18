@@ -1140,7 +1140,12 @@ We are going to do the latter:
 **Additional evidencing:**
 After you have merged your branch to main, push to your remote with the s10 tag. Add a screenshot of the GitHub repository after pushing the tag, showing the CarPark class with the new methods:
 
-![s10.png](images/s10.png)
+![s10-diff.png](images/s10-diff.png)
+![s10-json-rework.png](images/s10-json-rework.png)
+
+
+*I had previously committed, tagged and push to GitHub with tag s10, but decided to redo the segment as PyCharm was showing me errors and I noticed 
+typos in my work. I deleted the original s10 tag and pushed a new one, hence why the differences are minimal in my first screenshot.
 
 ### 2.14. Final step: build a car park
 
