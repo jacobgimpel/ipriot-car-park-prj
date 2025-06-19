@@ -73,9 +73,9 @@ Notes on using this guide:
 **Additional evidencing:**
 Include a screenshot of your GitHub repository **after** you have pushed your initial commit.
 
-```markdown
-!![image-of-github-after-push.png](screenshots%2Fimage-of-github-after-push.png)
-```
+
+![GitHub after push](images/image-of-github-after-push.png) 
+
 
 ### 2.2. Create a branch for your work
 
@@ -122,9 +122,9 @@ Ensure you have completed the previous table and include at least two methods an
 **Additional evidencing:**
 Include a screenshot of your GitHub repository `src/` directory **after** you have pushed your changes.
 
-```markdown
-!![stubs-for-classes.png](screenshots%2Fstubs-for-classes.png)
-```
+
+![stubs-for-classes.png](images/stubs-for-classes.png)
+
 
 ### 2.5. Add constructors and attributes to the classes
 
@@ -222,7 +222,10 @@ You realize that you need a way to configure the car park system. You decide to 
 --------
 **Additional evidencing:**
 Ensure that you have completed the previous steps and created the appropriate tags. Confirm that the tags have been created by running `git tag` in the terminal and provide a screenshot of the output.
-![git-s1-s2-tag.png](screenshots%2Fgit-s1-s2-tag.png)
+
+![git-s1-s2-tag.png](images/git-s1-s2-tag.png)
+
+
 ```bash
 [student@workstation ipriot-car-park-prj]$ git tag
 s1
@@ -468,9 +471,8 @@ This time, we will push the tag to the remote repository:
 
 Add a screenshot of the GitHub repository after pushing the tag, showing the CarPark class with the new methods:
 
-```markdown
-![Added methods to the car park class]![methods-to-car-park.png](screenshots%2Fmethods-to-car-park.png)
-```
+
+![methods-to-car-park.png](images/methods-to-car-park.png)
 
 Answer the following questions:
 > **Review Questions**
@@ -728,16 +730,39 @@ if __name__ == "__main__":
 
 1. Add a screenshot of the output of the unit tests. If any failed, add a screenshot of the error message and a screenshot after you have fixed the errors:
 
-   ```markdown
-   ![Unit tests](screenshots/unit-tests.png)
-   ```
-
 2. Commit your changes to the local repository. Tag the commit with `s6` so your lecturer can find it:
 3. Push the tag to the remote repository:
 
    ```bash
    git push --tags
    ```
+
+
+Error 1:
+
+![unit-test-error-sensor.png](images/unit-test-error-sensor.png)
+
+Fix 1:
+
+![unit-test-sensor-fix.png](images/unit-test-sensor-fix.png)
+
+Error 2:
+
+![unit-test-error-display.png](images/unit-test-error-display.png)
+
+Fix 2:
+
+![unit-test-display-fix](images/unit-test-display-fix.png)
+
+Unit tests passed ✓:
+
+![unit-test-pass.png](images/unit-test-pass.png)
+
+Both of the errors encountered were caused by the Display and Sensor class constructors, where I incorrectly
+had car_park, a non-default argument, following a default argument. Once this was changed, the unit tests were successful.
+
+
+
 
 ### 2.10. Display unit tests
 
@@ -786,16 +811,28 @@ Next, we'll create tests for the `Display` class. These tests will test the `__i
 
 1. Add a screenshot of the output of the unit tests. If any failed, add a screenshot of the error message and a screenshot after you have fixed the errors:
 
-   ```markdown
-   ![Unit tests](screenshots/unit-tests-display.png)
-   ```
-
 2. Commit your changes to the local repository. Tag the commit with `s7` so your lecturer can find it.
 3. Push the tag to the remote repository.
 
    ```bash
    git push --tags
    ```
+   
+I received this error when testing the update function:
+![display-unit-test-error.png](images/display-unit-test-error.png)
+
+This shows that the update(display) method is incorrectly implemented.
+
+Corrected:
+
+![display-unit-test-pass.png](images/display-unit-test-pass.png)
+
+Previously, my update method was not actually updating or adding any values to data, only printing it. 
+With the correction, when a message (key) is entered, it's value is assigned to self.message.
+
+
+
+
 
 ### 2.11. Sensor unit tests
 
@@ -803,11 +840,27 @@ Finally, we'll create tests for the `Sensor` class. These tests will test the `_
 
 > **Note**: Because the Sensor is abstract you cannot directly test it. You can only test its concrete subclasses.
 
+Tests for EntrySensor (With detect_vehicle method):
+
+![test-entry-sensor.png](images/test-entry-sensor.png)
+
+Tests for ExitSensor (Error encountered)
+
+![test-exit-sensor-fail.png](images/test-exit-sensor-fail.png)
+
+Fixed:
+
+![exit-sensor-detect-vehicle-test](images/exit-sensor-detect-vehicle-test-1.png)
+
+Previously, there were no values in the plates[] list for the exit sensor to remove, causing the error message.
+This test now removes the plate from the list, and confirms it using assertEqual.
+
+
 ### 2.12. Test the car park register method
 
 The car park register method should accept a `Sensor` (optional) or `Display` object. It should raise a `TypeError` if the object is neither a `Sensor` nor a `Display`. Before proceeding, think about where you would test this behaviour. Should you test it in the `CarPark` unit tests or the `Display`/`Sensor` unit tests? Why?
 
-> Answer here...
+>It should be tested in the CarPark unit tests. The CarPark class is responsible for managing the Sensors and Displays, the Sensor and Display tests should focus on their core functions, not on how they are registered. 
 
 Create a new unit test in the `test_car_park.py` file called `test_register_raises_type_error`. This test should create a `CarPark` object and a `str` object. It should then call the `register` method on the `CarPark` object with the `str` object as a parameter. The test should assert that a `TypeError` is raised. Here is a sample implementation:
 
@@ -818,6 +871,8 @@ with self.assertRaises(TypeError):
 ```
 
 **Additional evidencing:**
+
+![test-register.png](images/test_register.png)
 
 Commit your original test cases for the sensor class to the local repository. Tag the commit with `s8` so your lecturer can find it.
 
@@ -921,6 +976,9 @@ Notice how we have inadvertently made our test code hard to maintain (if we chan
 
 6. Run the unit tests in PyCharm. Confirm that they fail!
 
+
+![failed-log-car-unit-test](images/failed-log-car-unit-test.png)
+
 7. Commit your changes to the local repository. You do not need to tag them:
 
       ```bash
@@ -951,6 +1009,13 @@ Let's now implement the functionality to make the unit tests pass (if you have w
    ```
 
 3. If you have written the unit tests, run them in PyCharm. Confirm that your initialization tests now pass.
+
+
+![log-all-attributes.png](images/log-all-attributes.png)
+![log-file-created-test.png](images/log-file-created-test.png)
+
+
+
 4. Create a private method to log car activity. This method should accept the `plate` and `action` parameters. It should open the `log_file` in append mode and write the plate, action ('entered' or 'exited') and a timestamp to the file. Here is a sample implementation:
 
    ```python
@@ -972,7 +1037,27 @@ Let's now implement the functionality to make the unit tests pass (if you have w
 
 6. If you have created the unit tests, run them in PyCharm. Confirm that they now pass.
 
+
+
 **Additional evidencing:**
+
+test_car_logged_when_entering:
+
+![car-logged-entering-test.png](images/car-logged-entering-test.png)
+
+
+test_car_logged_when_exiting:
+
+![car-log-exited-fail.png](images/car-log-exited-fail.png)
+
+
+corrected:
+
+![car-log-exited-pass](images/car-log-exited-pass.png)
+
+test_car_logged_when_exiting - assertIn arguments were in the wrong order. 
+
+
 
 1. Add and commit your changes to the branch
 2. Now we are going to merge the branch back into the main branch. First, switch to the main branch:
@@ -1055,9 +1140,12 @@ We are going to do the latter:
 **Additional evidencing:**
 After you have merged your branch to main, push to your remote with the s10 tag. Add a screenshot of the GitHub repository after pushing the tag, showing the CarPark class with the new methods:
 
-```markdown
-![Added methods to the car park class](screenshots/methods-to-car-park.png)
-```
+![s10-diff.png](images/s10-diff.png)
+![s10-json-rework.png](images/s10-json-rework.png)
+
+
+*I had previously committed, tagged and push to GitHub with tag s10, but decided to redo the segment as PyCharm was showing me errors and I noticed 
+typos in my work. I deleted the original s10 tag and pushed a new one, hence why the differences are minimal in my first screenshot.
 
 ### 2.14. Final step: build a car park
 
@@ -1097,9 +1185,16 @@ In your final submission, you must include any files you created or modified. Th
 
 1. Add a screenshot of the output of the `main.py` file:
 
-   ```markdown
-   ![Main.py output](screenshots/main-py.png)
-   ```
+![main.py.png](images/main.py.png)
+
+
+Log file: 
+![main-log-file.png](images/main-log-file.png)
+
+
+Config.json file:
+![main-json.png](images/main-json.png)
+
 
 > Required for evidencing competency:
 
