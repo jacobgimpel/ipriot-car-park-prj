@@ -10,7 +10,7 @@ The program is able to:
 - Store vehicle license plates to a file, with time-stamps
 - Save and load a car park configuration from a .JSON file
 
-# Installation
+## Installation
 
 Step 1:
 
@@ -24,7 +24,7 @@ Step 2:
 
 Open the repository in your IDE of choice (e.g, PyCharm)
 
-# Usage Guide 
+## Usage Guide 
 
 The file structure for the program is as follows: 
 
