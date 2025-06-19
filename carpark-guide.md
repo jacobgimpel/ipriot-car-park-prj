@@ -1185,9 +1185,16 @@ In your final submission, you must include any files you created or modified. Th
 
 1. Add a screenshot of the output of the `main.py` file:
 
-   ```markdown
-   ![Main.py output](screenshots/main-py.png)
-   ```
+![main.py.png](images/main.py.png)
+
+
+Log file: 
+![main-log-file.png](images/main-log-file.png)
+
+
+Config.json file:
+![main-json.png](images/main-json.png)
+
 
 > Required for evidencing competency:
 
